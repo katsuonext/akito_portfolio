@@ -74,3 +74,5 @@ gem "haml-rails", ">= 1.0", '<= 2.0.1'
 # group :production do
 #   gem 'pg', '0.20.0'
 # end
+
+gem 'pg', '0.20.0'
