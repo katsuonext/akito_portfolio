@@ -75,4 +75,18 @@ gem "haml-rails", ">= 1.0", '<= 2.0.1'
 #   gem 'pg', '0.20.0'
 # end
 
-gem 'pg', '0.20.0'
+# gem 'pg', '0.20.0'
+
+# gemのバージョンは適宜変えてください
+
+# 開発・テスト環境ではSQLite3を使う
+group :development, :test do
+  gem 'sqlite3'
+end
+
+# 本番環境ではPostgresqlを使う
+group :production do
+  gem 'pg', '0.20.0'
+end
+
+gem 'font-awesome-sass'
