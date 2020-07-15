@@ -4,38 +4,42 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-development:
-  <<: *default
-  database: db/development.sqlite3
-
-test:
-  <<: *default
-  database: db/test.sqlite3
-
-production:
-  <<: *default
-  database: db/production.sqlite3
 # default: &default
-#   adapter: postgresql
-#   encoding: unicode
-# For details on connection pooling, see Rails configuration guide
-# https://guides.rubyonrails.org/configuring.html#database-pooling
+#   adapter: sqlite3
 #   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   timeout: 5000
 
 # development:
 #   <<: *default
-#   database: akito's_portfolio_development
+#   database: db/development.sqlite3
 
 # test:
-#   database: akito's_portfolio_test
+#   <<: *default
+#   database: db/test.sqlite3
 
 # production:
 #   <<: *default
-#   database: akito's_portfolio_production
-#   username: akito's_portfolio
-#   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+#   database: db/production.sqlite3
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: akito_portfolio_development
+
+test:
+  <<: *default
+  database: akito_portfolio_test
+
+production:
+  <<: *default
+  database: akito_portfolio_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
