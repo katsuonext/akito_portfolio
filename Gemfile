@@ -60,3 +60,38 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "haml-rails", ">= 1.0", '<= 2.0.1'
+
+# gemのバージョンは適宜変えてください
+
+# 開発・テスト環境ではSQLite3を使う
+# group :development, :test do
+#   gem 'sqlite3'
+# end
+
+# # 本番環境ではPostgresqlを使う
+# group :production do
+#   gem 'pg', '0.20.0'
+# end
+
+# gem 'pg', '0.20.0'
+
+# gemのバージョンは適宜変えてください
+
+# 開発・テスト環境ではSQLite3を使う
+# group :development, :test do
+#   gem 'sqlite3'
+# end
+
+# 本番環境ではPostgresqlを使う
+# group :production do
+#   gem 'pg', '0.20.0'
+# end
+
+gem 'font-awesome-sass'
+
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
